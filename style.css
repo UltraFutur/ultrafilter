@@ -2,10 +2,12 @@
 body {font-size: 16px; font-family: 'PPMonumentExtended'; font-weight: 400; line-height: 1.2;}
 img {width: 100%; height: auto;}
 span {display: block;}
-canvas {width: 100%; height: 100%; object-fit: cover;}
+canvas {width: 100%; height: 100%; object-fit: cover; cursor: pointer;}
 button {font-family: 'PPMonumentExtended'; display: inline-block; border: 0.05rem solid transparent; background-color: #000AFF; color: #FFF; padding: 1rem 2rem; cursor: pointer; transition: 250ms ease;}
 button:hover {background-color: #FFF; border-color: #000AFF; color: #000AFF;}
-
+button.delete {padding: 0.75rem; background-color: #FFF; color: #000AFF; position: absolute; top: 0; right: 0;}
+button.delete::after {content: ''; position: absolute; top: 0; left: 0; background-image: url('/img/$icons_set.png'); background-size: cover; width: 100%; height: 100%;}
+button.delete:hover {background-color: #FFF; color: #000AFF;}
 .container, .container-fluid {width: 100%; padding: 0 calc(1.5rem * 0.5); margin: 0 auto;}
 .container {max-width: 1400px;}
 
@@ -24,34 +26,54 @@ button:hover {background-color: #FFF; border-color: #000AFF; color: #000AFF;}
     src: url('./font/PPMonumentExtended-Regular.woff2');
     font-weight: 400;
 }
+@font-face {
+    font-family: 'PPNeueMachina';
+    src: url('./font/PPNeueMachina-InktrapRegular.woff2');
+    font-weight: 400;
+    font-kerning: none;
+    font-feature-settings: 'dlig' on, 'ss09' on, 'ss06' on, 'ss05' on, 'ss08' on, 'ss03' on;
+}
+@font-face {
+    font-family: 'PPNeueMachina';
+    src: url('./font/PPNeueMachina-InktrapUltrabold.woff2');
+    font-weight: 700;
+    font-kerning: none;
+    font-feature-settings: 'dlig' on, 'ss09' on, 'ss06' on, 'ss05' on, 'ss08' on, 'ss03' on;
+}
+
 
 /* Header */
-header > span {font-size: 2rem; text-transform: uppercase; font-weight: 900; text-align: center;}
+header > span {font-size: 1.5rem; text-transform: uppercase; font-weight: 900; color: #000AFF; border: 0.05rem solid #000AFF; border-top: 0; padding: 1rem;}
 section {margin-bottom: 2rem;}
 
-/* Colors */
-.colors > span {margin: 2rem 0 1rem 0;}
+/* Input Fields*/
+.flex {display: flex; column-gap: 2rem; margin: 2rem 0;}
+.input-container {border: 0.05rem solid #000AFF; padding: 1rem; width: calc(100% / 2);}
+.input-container > span {font-size: 1rem; color: #000AFF; font-weight: 700; margin-bottom: 1rem;}
+.input-fields {display: flex;}
 input[type="radio"] {display: none;  appearance: none;}
-input[type="radio"]+label {padding: 0.5rem; display: inline-block; background-color: #FFF; border: 0.05rem solid #000AFF; color: #000AFF; font-size: 0.75rem; cursor: pointer; margin-right: 0.75rem; transition: 250ms ease;}
+input[type="radio"]+label {padding: 0.75rem; font-family: 'PPNeueMechanica'; font-weight: 400; display: block; background-color: #FFF; border: 0.05rem solid #000AFF; color: #000AFF; font-size: 1rem; cursor: pointer; width: 100%; text-align: center; transition: 250ms ease;}
 input[type="radio"]:checked+label {background-color: #000AFF; color: #FFF;}
 
 /* Input files */
-.dropzone {width: 100%; height: 200px; border: 2px dashed #000; display: flex; justify-content: center; align-items: center; cursor: pointer; margin: 2rem 0;}
-.dropzone > span {text-align: center;}
+.dropzone {width: 100%; height: 300px; border: 0.2rem dashed #000AFF; display: flex; justify-content: center; align-items: center; cursor: pointer; margin: 2rem 0;}
+.dropzone > span {text-align: center; color: #000AFF; font-weight: 700; font-size: 1rem;}
 
 /* Preview */
 .preview {display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0;}
+.image-container {position: relative;}
 
 /* Download */
 .download.hide {display: none;}
 .download.show {display: block;}
 
+/* Delete */
+
 /* Footer */
-footer {background-color: #000AFF; color: #FFF;}
-footer > div {padding: 3rem 0 1rem 0; margin-top: 3rem;}
-footer > div > span {font-size: 1.125rem; font-weight: 700;}
-footer span {font-size: 0.875rem; text-align: center;}
-footer > span {padding-bottom: 1.5rem;}
+footer {background-color: #FFF; color: #000AFF;}
+footer > span {padding: 1.5rem 0; margin-top: 2rem; border: 0.05rem solid #000AFF;}
+footer span {font-size: 1.125rem; font-weight: 700; text-align: center;}
+footer span span:last-child {font-size: 0.875rem; font-weight: 400; margin-top: 0.25rem; font-family: 'PPNeueMachina';}
 footer span > img {max-width: 16px;}
 
 /* Responsive */
@@ -66,6 +88,8 @@ footer span > img {max-width: 16px;}
 }
 @media screen and (max-width: 576px) {
     .container {max-width: 540px;}
+    .flex {flex-wrap: wrap; row-gap: 2rem;}
+    .input-container {width: 100%;}
 
     button {display: block; width: 100%;}
     input[type="radio"]+label {display: block; margin-right: 0; margin-bottom: 1rem; padding: 1rem;}

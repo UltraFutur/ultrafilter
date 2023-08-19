@@ -11,14 +11,26 @@
         <span>UltraFilter</span>
     </header>
     <main class="container">
-        <div class="colors">
-            <span>Couleur du filtre</span>
-            <div>
-                <input type="radio" name="color" id="blue" value="rgba(0, 10, 255, 0.5)" checked>
-                <label for="blue">Bleu</label>
-
-                <input type="radio" name="color" id="yellow" value="rgba(235, 255, 0, 0.5)">
-                <label for="yellow">Jaune</label>
+        <div class="flex">
+            <div class="input-container">
+                <span>Couleur du filtre</span>
+                <div class="input-fields">
+                    <input type="radio" name="color" id="blue" value="rgba(0, 10, 255, 0.5)" checked>
+                    <label for="blue">Bleu</label>
+    
+                    <input type="radio" name="color" id="yellow" value="rgba(235, 255, 0, 0.5)">
+                    <label for="yellow">Jaune</label>
+                </div>
+            </div>
+            <div class="input-container">
+                <span>Mode colorimétrique</span>
+                <div class="input-fields">
+                    <input type="radio" name="color-space" id="rvb" value="rvb" checked>
+                    <label for="rvb">RVB</label>
+    
+                    <input type="radio" name="color-space" id="cmjn" value="cmjn">
+                    <label for="cmjn">CMJN</label>
+                </div>
             </div>
         </div>
         <div class="dropzone" id="dropzone">
@@ -29,11 +41,10 @@
         <button class="download hide">Télécharger</button>
     </main>
     <footer class="container">
-        <div>
-            <span>UltraFutur</span>
-            <span>Festival</span>
-        </div>
-        <span>Developped with <img src="./img/Vector.png" alt="coeur arc en ciel"> by UltraFutur</span>
+        <span>
+            <span>Festival UltraFutur</span>
+            <span>Developped with <img src="./img/Vector.png" alt="coeur arc en ciel"> by UltraTeam © 2023</span>
+        </span>
     </footer>
     <script src="./main.js"></script>
 </body>
