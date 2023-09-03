@@ -5,7 +5,7 @@ let downloadFiles = document.querySelector('.download');
 let inputColors = document.querySelectorAll('input[name="color"]');
 let inputColorsSpace = document.querySelectorAll('input[name="color-space"]');
 
-let currentFilterColor = 'rgba(0, 10, 255, 0.5)';
+let currentFilterColor = 'rgba(235, 255, 0, 0.5)';
 let currentColorSpace = 'rgb';
 
 inputColors.forEach(inputColor => {
@@ -103,7 +103,7 @@ inputFiles.addEventListener('drop', (e) => {
                 // Ajouter un écouteur d'événement pour la suppression
                 deleteButton.addEventListener('click', () => {
                     container.removeChild(canvas);
-                    container.appendChild(deleteButton);
+                    container.removeChild(deleteButton);
                     lauchDownload();
                 });
 
